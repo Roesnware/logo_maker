@@ -2,6 +2,7 @@
 const Triangle = require('../lib/shapes/triangle.js');
 const Circle = require('../lib/shapes/circle.js');
 const Square = require('../lib/shapes/square.js');
+const Shape = require('../lib/shapes/shape.js');
 
 // func to generate svg file text
 function svgGenerator(input) {
@@ -10,22 +11,22 @@ function svgGenerator(input) {
 
     if (shape == "Circle") {
 
-        let cir = new Circle();
+        let cir = new Circle(shapeColor, text, textColor);
 
         // return string of svg file code for circle
-        return `<svg width="300" height="200"></svg>`;
+        return `${cir.renderStart()}${cir.render()}${cir.renderText()}${cir.renderEnd()}`;
     } else if (shape == "Square") {
 
-        let squ = new Square();
+        let squ = new Square(shapeColor, text, textColor);
 
         // return string of svg file code for square
-        return `<svg width="300" height="200"></svg>`;
+        return `${squ.renderStart()}${squ.render()}${squ.renderText()}${squ.renderEnd()}`;
     } else {
 
-        let tri = new Triangle();
+        let tri = new Triangle(shapeColor, text, textColor);
 
         // return string of svg file code for triangle
-        return `<svg width="300" height="200"></svg>`;
+        return `${tri.renderStart()}${tri.render()}${tri.renderText()}${tri.renderEnd()}`;
     }
 }
 
