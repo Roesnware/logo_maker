@@ -2,18 +2,24 @@
 const inq = require('inquirer');
 const fs = require('fs');
 
-
+// func to write to file 
 function writeToFile(fileName, data) {
-    // make a file from input 
-    fs.writeFile(fileName, data, function (err) {
-        console.log(err)
+
+    // write a file from input 
+    fs.writeFile(fileName, data, (err) => {
+
+        // ternary log err if err else log success
+        err ? console.log(err) : console.log('Successfully created SVG file!');
     }
-    )
+    );
 }
 
+// initialize func 
 function init() {
+
     // use inquirer
     inq
+
         // prompt for input 
         .prompt([
             {
@@ -26,8 +32,10 @@ function init() {
 
             },
         ])
+
         // then use that data 
         .then((response) => {
+            
             // spread repsonse to obj 
             let input = { ...response };
 
