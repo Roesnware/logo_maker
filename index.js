@@ -51,12 +51,9 @@ function init() {
             // build data
             let data = svgGenerator(input);
 
-            // destruct to get text 
-            let { text, textColor, shape, shapeColor } = input;
-
             // folder and file anme 
             let folder = "examples";
-            let file = `${text}.svg`;
+            let file = `logo.svg`;
 
             // call write func
             write(`./${folder}/${file}`, data);
