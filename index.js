@@ -68,3 +68,6 @@ function init() {
             writeToFile(`./${folder}/${file}`, data);
         });
 }
+
+// call func 
+init();
