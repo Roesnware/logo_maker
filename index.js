@@ -30,7 +30,8 @@ function svgGenerator(input) {
         return
                 `
                 <svg width="100" height="100">
-                    <${shape} cx="50" cy="50" r="40" fill=${shapeColor} />
+                    <circle cx="50" cy="50" r="40" fill=${shapeColor} />
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill=${textColor}>${text}</text>
                 </svg>
                 `;
     } else if (shape == "Square")  {
@@ -38,13 +39,15 @@ function svgGenerator(input) {
                 `
                 <svg width="100" height="100">
                     <rect width="200" height="200" fill=${shapeColor} />
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill=${textColor}>${text}</text>
                 </svg>
                 `;
     } else {
         return
                 `
                 <svg width="100" height="100">
-                    <polygon points="200,10 250,100 150,100" fill=${shapeColor} />
+                    <polygon points="50,10 0,100 100,100" fill=${shapeColor} />
+                    <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" fill=${textColor}>${text}</text>
                 </svg>
                 `;
     }
