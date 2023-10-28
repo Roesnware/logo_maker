@@ -25,13 +25,15 @@ function svgGenerator(input) {
     // destruct input 
     const { text, textColor, shape, shapeColor } = input;
 
-    // return string of data for svg file
-    return 
-    `
-    <svg width="100" height="100">
-        < width= height= cy= cx= r= style= />
-    </svg>
-    `;
+    if (shape == "circle") {
+        // return string of svg file code for triangle
+        return
+                `
+                <svg width="100" height="100">
+                    <${shape} cx="50" cy="50" r="40" style="fill=${shapeColor}" />
+                </svg>
+                `;
+    } 
 }
 
 // initialize func 
@@ -75,7 +77,7 @@ function init() {
             let data = svgGenerator(input);
 
             // destruct to get text 
-            let {text, textColor, shape, shapeColor} = input;
+            let { text, textColor, shape, shapeColor } = input;
 
             // folder and file anme 
             let folder = "examples";
