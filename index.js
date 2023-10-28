@@ -41,7 +41,12 @@ function svgGenerator(input) {
                 </svg>
                 `;
     } else {
-        
+        return
+                `
+                <svg width="100" height="100">
+                    <polygon points="200,10 250,100 150,100" fill=${shapeColor} />
+                </svg>
+                `;
     }
 }
 
