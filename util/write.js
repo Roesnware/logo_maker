@@ -8,7 +8,7 @@ function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
 
         // ternary log err if err else log success
-        err ? console.log(err) : console.log('Successfully created SVG file!');
+        err ? console.log(err) : console.log('Generated logo.svg');
     }
     );
 }
