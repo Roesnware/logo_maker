@@ -20,6 +20,20 @@ function writeToFile(fileName, data) {
     );
 }
 
+// func to generate svg file text
+function svgGenerator(input) {
+    // destruct input 
+    const { text, textColor, shape, shapeColor } = input;
+
+    // return string of data for svg file
+    return 
+    `
+    <svg width="100" height="100">
+        < width= height= cy= cx= r= style= />
+    </svg>
+    `;
+}
+
 // initialize func 
 function init() {
 
