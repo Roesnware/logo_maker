@@ -2,6 +2,12 @@
 const inq = require('inquirer');
 const fs = require('fs');
 
+// array for input 
+const promptQuestions = ["What text do you want to include in the logo?", "What text color do you want?", "What shape would you like?", "What shape color do you want to use?"];
+
+// array for shape choices
+const shapesList = ["Square", "Triangle", "Circle"];
+
 // func to write to file 
 function writeToFile(fileName, data) {
 
@@ -24,18 +30,30 @@ function init() {
         .prompt([
             {
                 type: 'input',
-                name: 'name',
-                message: 'What is your name?'
-
+                message: promptQuestions[0],
+                name: 'text',
             },
             {
-
+                type: 'input',
+                message: promptQuestions[1],
+                name: 'textColor',
+            },
+            {
+                type: 'list',
+                message: promptQuestions[2],
+                choices: shapesList,
+                name: 'shape',
+            },
+            {
+                type: 'input',
+                message: promptQuestions[3],
+                name: 'shapeColor',
             },
         ])
 
         // then use that data 
         .then((response) => {
-            
+
             // spread repsonse to obj 
             let input = { ...response };
 
