@@ -2,26 +2,43 @@
 const inq = require('inquirer');
 const fs = require('fs');
 
-// use inquirer
-inq
-    // prompt for input 
-    .prompt([
-        {
 
-        },
-        {
+function writeToFile(fileName, data) {
+    // make a file from input 
+    fs.writeFile(fileName, data, function (err) {
+        console.log(err)
+    }
+    )
+}
 
-        },
-    ])
-    // then use that data 
-    .then((answers) => {
-        // var to store code for svg file 
-        const svgCode = generateSVG(answers);
-    
-        // write SVG file using answers 
-        fs.writeFile(`${answers.text}.html`, svgCode, (err) => {
-            // if error log error else log success
-          err ? console.log(err) : console.log('Successfully created SVG file');
-        }
-        );    
-    });
+function init() {
+    // use inquirer
+    inq
+        // prompt for input 
+        .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: 'What is your name?'
+
+            },
+            {
+
+            },
+        ])
+        // then use that data 
+        .then((response) => {
+            // spread repsonse to obj 
+            let input = { ...response };
+
+            // build data
+            let data = svgGenerator(input);
+
+            // folder and file anme 
+            let folder = "";
+            let file = ""
+
+            // call write func
+            writeToFile(`./${folder}/${file}`, data);
+        });
+}
