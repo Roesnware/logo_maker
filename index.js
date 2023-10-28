@@ -25,15 +25,24 @@ function svgGenerator(input) {
     // destruct input 
     const { text, textColor, shape, shapeColor } = input;
 
-    if (shape == "circle") {
+    if (shape == "Circle") {
         // return string of svg file code for triangle
         return
                 `
                 <svg width="100" height="100">
-                    <${shape} cx="50" cy="50" r="40" style="fill=${shapeColor}" />
+                    <${shape} cx="50" cy="50" r="40" fill=${shapeColor} />
                 </svg>
                 `;
-    } 
+    } else if (shape == "Square")  {
+        return
+                `
+                <svg width="100" height="100">
+                    <rect width="200" height="200" fill=${shapeColor} />
+                </svg>
+                `;
+    } else {
+        
+    }
 }
 
 // initialize func 
